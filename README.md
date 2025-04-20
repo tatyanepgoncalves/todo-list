@@ -59,4 +59,3 @@ todo-list/
 
 ## 🙋‍♀️ Autora
 Feito com 💜 por Tatyane Gonçalves
-Estudante de Sistemas de Informação e futura dev fullstack!
