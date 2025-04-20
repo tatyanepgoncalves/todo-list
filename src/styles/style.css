@@ -1,176 +1,156 @@
-:root {
-  --zinc50: #fafafa;
-  --zinc100: #f4f4f5;
-  --zinc200: #e4e4e7;
-  --zinc300: #d4d4d8;
-  --zinc400: #a1a1aa;
-  --zinc500: #71717a;
-  --zinc600: #52525b;
-  --zinc700: #3f3f46;
-  --zinc800: #27272a;
-  --zinc900: #18181b;
-  --zinc950: #09090b;
+.container,
+.form-task {
+  flex-direction: column;
 }
-
+:root {
+  --yellow-300: #fde047;
+  --yellow-950: #422006;
+  --white: #fff;
+  --zinc-50: #fafafa;
+  --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8;
+  --zinc-400: #a1a1aa;
+  --zinc-500: #71717a;
+  --zinc-800: #27272a;
+  --zinc-900: #18181b;
+  --zinc-950: #09090b;
+}
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
 }
-
+button {
+  background: 0 0;
+  border: none;
+}
 body {
-  background-color: #09090B;
-  color: #fafafa;
+  background: var(--zinc-950);
+  color: var(--white);
+  overflow-x: hidden;
+}
+.container {
+  height: 100dvh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  gap: 3rem;
 }
-
-.container {
+.form-task,
+.taskList {
+  gap: 1.5rem;
+  display: flex;
+}
+.container.margin {
+  margin: 4rem;
+}
+.form,
+.taskList {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--zinc-900);
   padding: 2rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--zinc400);
-}
-
-.container section h1 {
-  text-align: center;
-  margin-bottom: 1rem;
-  color: var(--zinc100);
-}
-
-.form-task {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.form-task input[type="text"] {
-  background-color: transparent;
-  border: 2px solid var(--zinc600);
-  outline: none;
-  color: var(--zinc300);
-}
-
-.form-task input[type="text"]::placeholder {
-  color: var(--zinc600);
-  font-weight: 500;
-  font-size: 0.8rem;
-}
-
-#addBtn {
-  /* padding: 0.75rem 1rem; */
-  background-color: var(--zinc800);
-  color: var(--zinc500);
-  font-size: 0.9rem;
-  font-weight: 600;
-  border: none;
   border-radius: 0.5rem;
+}
+.form h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  line-height: 150%;
+}
+.addBtn,
+.taskInput,
+.taskList div {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+.taskInput:hover,
+.taskList div.done,
+.taskList div:hover {
+  border: 1px solid var(--yellow-300);
+}
+.taskInput {
+  border: 1px solid var(--zinc-400);
+  background-color: transparent;
+  outline: 0;
+  color: var(--zinc-400);
+}
+.taskInput::placeholder {
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--zinc-400);
+}
+.taskInput:hover {
+  box-shadow: 0 0 8px var(--yellow-300);
+}
+.addBtn {
+  background-color: var(--yellow-300);
+  color: var(--yellow-950);
+  font-size: 16px;
+  border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
-
-#addBtn:hover {
-  background-color: #84cc16;
-  box-shadow: 0 4px 4px rgba(132, 204, 22, 0.5);
-  color: var(--zinc800);
+.addBtn,
+.taskList div img {
+  transition: transform 0.2s;
 }
-
-#taskList {
-  display: flex;
+.addBtn:hover,
+.taskList div img:hover {
+  transform: scale(1.2);
+}
+.taskList {
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1),
+    0 2px 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
   flex-direction: column;
-  gap: 0.75rem;
+  border: 1px solid var(--zinc-800);
 }
-
-#taskList div {
+.taskList div {
+  border: 1px solid var(--zinc-500);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid var(--zinc500);
-  padding: 0.75rem 1rem;
-  border-radius: 0.75rem;
-  background-color: var(--zinc900);
-  transition: all 0.2s ease;
 }
-
-#taskList div:hover {
-  background-color: var(--zinc800);
-}
-
-#taskList div img {
+.taskList div img {
   cursor: pointer;
+  transition: 0.5s;
+  width: 24px;
+  height: 24px;
 }
-
-#taskList div span {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--zinc200);
-  font-weight: 500;
+.taskList div span {
+  color: var(--zinc-200);
 }
-
-
-#taskList div button {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-
-#taskList div button:hover {
-  transform: scale(1.2);
-}
-
-#taskList div.done {
-  border: 2px solid #adff2f;
-}
-
-
-@media (width < 48rem) {
-  .container {
-    width: 80%;
-    max-width: 500px;
+@media (width < 40rem) {
+  .form,
+  .taskList {
+    max-width: 350px;
+    border-radius: 0.5rem;
+    padding: 1rem;
   }
-
-  .container section h1 {
+  .addBtn,
+  .taskInput,
+  .taskList div {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+  }
+  .form h1 {
+    margin-bottom: 1rem;
     font-size: 1.5rem;
-    line-height: 1.5;
   }
-
   .form-task {
     gap: 1rem;
   }
-
-  .form-task input[type="text"] {
-    border-radius: 0.25rem;
-    padding: 0.5rem;
+  .taskInput::placeholder {
+    font-size: 14px;
   }
-
-  #addBtn {
-    padding: 0.5rem 1rem;
+  .addBtn {
+    font-size: 12px;
   }
-
-  #taskList {
+  .taskList {
+    padding: 2rem 1rem;
     gap: 1rem;
-  }
-}
-
-@media (width >= 64rem) {
-  .container {
-    width: 100%;
-    max-width: 50rem;
-  }
-
-  .form-task input[type="text"] {
-    border-radius: 0.5rem;
-  }
-
-  .form-task input[type="text"], #addBtn {
-    padding: 0.75rem 1rem;
   }
 }
